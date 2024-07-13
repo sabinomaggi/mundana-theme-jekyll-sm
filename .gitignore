@@ -4,5 +4,7 @@ _site
 node_modules
 Gemfile.lock
 
-#--- macOS stuff ---
+#--- SM additions ---
 .DS_store
+*.OLD
+#--------------------
