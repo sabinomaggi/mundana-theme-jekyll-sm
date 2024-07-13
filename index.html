@@ -28,6 +28,7 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll deve
     <a class="text-dark" href="{{site.baseurl}}{{latest_post.url}}">{{ latest_post.title }}</a>
     </h2>
     <p class="excerpt">
+        <!-- {{ latest_post.excerpt | strip_html | strip_newlines | truncate: 136 }} -->
         {{ latest_post.content | strip_html | strip_newlines | 
             regex_replace: "!\[\]\(.*?\)", "" | 
             regex_replace: "-- _Fonte.*?_\.", "" | 
@@ -148,6 +149,7 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll deve
             <div class="col-md-6 pt-6 pb-6 pr-lg-4 align-self-center">
                 <h1 class="mb-3">{{post.title}}</h1>
                 <p class="mb-3 lead">
+                    <!-- {{ post.excerpt | strip_html | strip_newlines | truncate: 136 }} -->
                     {{ post.content | strip_html | strip_newlines | 
                         regex_replace: "!\[\]\(.*?\)", "" | 
                         regex_replace: "-- _Fonte.*?_\.", "" | 
