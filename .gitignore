@@ -7,4 +7,6 @@ Gemfile.lock
 #--- SM additions ---
 .DS_store
 *.OLD
+*.md
+TRASH
 #--------------------
