@@ -1,5 +1,5 @@
 # Melabit blog 
-## based on Jekyll and on the free Mundana theme (by WowThemes.net)
+## Based on Jekyll and on the free Mundana theme (by WowThemes.net)
 
 <!-- [Live Demo](https://wowthemesnet.github.io/mundana-theme-jekyll/) &nbsp; | &nbsp;
 [Download](https://github.com/wowthemesnet/mundana-theme-jekyll/archive/master.zip) &nbsp; | &nbsp;
@@ -15,6 +15,7 @@
 #### Mundana Documentation
 
 [How to install & use](https://bootstrapstarter.com/bootstrap-templates/mundana-theme-jekyll/)
+[Live Demo](https://wowthemesnet.github.io/mundana-theme-jekyll/)
 
 #### Contribute to Mundana repository
 
@@ -51,6 +52,6 @@ Theme designed and developed by [Sal](https://www.wowthemes.net), *free* under M
 
 <a href="https://www.wowthemes.net/donate/" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
-#### Mundana Live Demo
+<!-- #### Mundana Live Demo
 
-[Live Demo](https://wowthemesnet.github.io/mundana-theme-jekyll/)
+[Live Demo](https://wowthemesnet.github.io/mundana-theme-jekyll/) -->
