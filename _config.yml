@@ -17,7 +17,8 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-seo-tag
-  
+  - jekyll-regex-replace
+
 authors:
     "Sabino Maggi":
       name:           Sabino Maggi
@@ -26,7 +27,7 @@ authors:
       bio:            "Hi, I am the real Sabino Maggi"
       email:          sabino.maggi@gmail.com
       twitter:        https://twitter.com/sabinomaggi
- 
+
 # Defaults
 defaults:
 
@@ -35,9 +36,9 @@ defaults:
       path: "_posts"
     values:
       layout: post
-      author: "Sabino Maggi"
+      author: Sabino Maggi
       avatar: /assets/images/SM_400x400.png
-      
+
   # all pages
   - scope:
       path: "_pages"
@@ -50,7 +51,6 @@ highlighter: rouge
 
 # Paginate
 paginate: 20
-
 
 
 # Exclude metadata and development time dependencies (like Grunt plugins)
