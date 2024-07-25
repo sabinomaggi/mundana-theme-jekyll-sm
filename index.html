@@ -184,16 +184,16 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll deve
             {% include main-loop-card.html %}
         {% endfor %}
 
-        <div class="mt-5">
-            <!-- Pagination links -->
+        <!-- Pagination links -->
+        <!-- <div class="mt-5">
             {% if paginator.total_pages > 1 %}
-                <ul class="pagination"> 
+                <ul class="pagination">
                 {% if paginator.previous_page %}
                     <li class="page-item"><a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a></li>
                 {% else %}
                     <li class="page-item disabled"><span class="prev page-link">&laquo;</span></li>
                 {% endif %}
-    
+
                 {% for page in (1..paginator.total_pages) %}
                     {% if page == paginator.page %}
                         <li class="page-item disabled"><span class="webjeda page-link">{{ page }}</span></li>
@@ -203,7 +203,7 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll deve
                         <li class="page-item"><a class="page-link" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
                     {% endif %}
                 {% endfor %}
-    
+
                 {% if paginator.next_page %}
                     <li class="page-item"><a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a></li>
                 {% else %}
@@ -211,6 +211,13 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll deve
                 {% endif %}
                 </ul>
             {% endif %}
+        </div> -->
+        
+        <!-- Pagination -->
+        <div class="mt-5">
+            {% if site.paginate %}
+                {% include paginator.html %}
+            {%- endif %}
         </div>
 
     </div>
