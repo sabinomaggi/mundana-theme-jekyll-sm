@@ -30,11 +30,12 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll deve
                 </h2>
                 <p class="excerpt">
                 <!-- {{ latest_post.excerpt | strip_html | strip_newlines | truncate: 136 }} -->
-                {{ latest_post.content | strip_html | strip_newlines | 
+                {{ latest_post.content | strip_html | 
                     regex_replace: "!\[\]\(.*?\)", "" | 
-                    regex_replace: "-- _Fonte.*?_\.", "" | 
+                    regex_replace: "^.*Fonte.*?\.", "" | 
                     regex_replace: "\(http.*?\)", "" | 
                     regex_replace: "[\[\]]", "" | 
+                    strip_newlines | 
                     truncate: 128}}
                 </p>
                 <div>
@@ -152,12 +153,13 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll deve
                     <h1 class="mb-3">{{post.title}}</h1>
                     <p class="mb-3 lead">
                     <!-- {{ post.excerpt | strip_html | strip_newlines | truncate: 136 }} -->
-                    {{ post.content | strip_html | strip_newlines | 
-                        regex_replace: "!\[\]\(.*?\)", "" | 
-                        regex_replace: "-- _Fonte.*?_\.", "" | 
-                        regex_replace: "\(http.*?\)", "" | 
-                        regex_replace: "[\[\]]", "" | 
-                        truncate: 256}}
+                    {{ post.content | strip_html | 
+                    regex_replace: "!\[\]\(.*?\)", "" | 
+                    regex_replace: "^.*Fonte.*\.", "" | 
+                    regex_replace: "\(http.*?\)", "" | 
+                    regex_replace: "[\[\]]", "" | 
+                    strip_newlines | 
+                    truncate: 256}}
                     </p>
                     <a href="{{site.baseurl}}{{post.url}}" class="btn btn-dark">Read More</a>
                 </div>
@@ -216,7 +218,7 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll deve
         <!-- Pagination -->
         <div class="mt-5">
             {% if site.paginate %}
-                {% include paginator.html %}
+                {% include custom/paginator.html %}
             {%- endif %}
         </div>
 
