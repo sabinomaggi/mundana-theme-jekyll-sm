@@ -6,7 +6,7 @@ favicon: "assets/images/favicon.ico"
 baseurl: ""
 # disqus: "sabinomaggi"
 email: "sabino.maggi@@gmail.com"
-mailchimp-list: ""
+# mailchimp-list: ""
 
 include: ["_pages"]
 permalink: /:year/:month/:day/:title/

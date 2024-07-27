@@ -135,11 +135,11 @@ layout: default
                 <!--Every article has a id, but special pages don't unless you set manually.
                 This prevents Cusdis from appear everywhere-->
                 <div id="cusdis_thread"
-                    data-host="https://cusdis.com"
-                    data-app-id="31f274e1-b668-41ec-b9c2-8f29b245ec02"
-                    data-page-id="{{ page.id }}"
-                    data-page-url="{{ site.url }}{{ page.baseurl }}{{ page.url }}"
-                    data-page-title="{{ page.title }}"
+                    data-host = {{ site.data.secrets.cusdis-host }}
+                    data-app-id = {{ site.data.secrets.cusdis-id }}
+                    data-page-id = "{{ page.id }}"
+                    data-page-url = "{{ site.url }}{{ page.baseurl }}{{ page.url }}"
+                    data-page-title = "{{ page.title }}"
                 ></div>
                 <script defer src="https://cusdis.com/js/cusdis.es.js"></script>
                 {%- endif -%}
