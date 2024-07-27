@@ -18,5 +18,7 @@ TRASH
 assets/images/*
 
 # file containing information to be kept reserved
+#   does not work, better to use
+#     % git update-index --assume-unchanged _data/secrets.yml
 _data/secrets.yml
 #--------------------
