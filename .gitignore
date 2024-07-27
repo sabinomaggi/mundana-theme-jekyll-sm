@@ -17,8 +17,11 @@ TRASH
 # post images
 assets/images/*
 
-# file containing information to be kept reserved
-#   does not work, better to use
-#     % git update-index --assume-unchanged _data/secrets.yml
-_data/secrets.yml
+# the method below does not work when one has already committed a version of the file
+# not containg any secret, just to document how to use the secrets.yml file; 
+# it is much better to use specific command
+# % git update-index --assume-unchanged _data/secrets.yml
+#
+# # file containing information to be kept reserved
+# _data/secrets.yml
 #--------------------
