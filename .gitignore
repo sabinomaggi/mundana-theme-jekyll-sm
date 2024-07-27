@@ -18,5 +18,5 @@ TRASH
 assets/images/*
 
 # file containing information to be kept reserved
-_data/_secrets.yml
+*/secrets.yml
 #--------------------
