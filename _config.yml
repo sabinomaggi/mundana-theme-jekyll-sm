@@ -4,7 +4,7 @@ description: "Mac e programmazione, con un tocco di retrocomputing"
 logo: "assets/images/logo.png"
 favicon: "assets/images/favicon.ico"
 baseurl: ""
-disqus: "sabinomaggi"
+# disqus: "sabinomaggi"
 email: "sabino.maggi@@gmail.com"
 mailchimp-list: ""
 
@@ -24,7 +24,7 @@ authors:
       name:           Sabino Maggi
       site:           https://melabit.wordpress.com
       avatar:         assets/images/SM_400x400.png
-      bio:            "Hi, I am the real Sabino Maggi"
+      bio:            ""
       email:          sabino.maggi@gmail.com
       twitter:        https://twitter.com/sabinomaggi
 
