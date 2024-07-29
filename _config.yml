@@ -67,6 +67,12 @@ highlighter: rouge
 # # Paginate
 # paginate: 10
 
+# Paginate v2
+pagination:
+  enabled: true
+  debug: false
+  per_page: 10
+  permalink: "/page/:num/"
 
 # Exclude metadata and development time dependencies (like Grunt plugins)
 exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
