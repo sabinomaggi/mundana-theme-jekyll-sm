@@ -15,8 +15,9 @@ group :jekyll_plugins do
     gem "base64"
     gem "jekyll-feed"
     gem "jekyll-sitemap"
-    gem "jekyll-paginate"
+    # gem "jekyll-paginate"
     gem "jekyll-seo-tag"
     gem "jekyll-regex-replace"
     gem "jekyll-polyglot"
+    gem "jekyll-paginate-v2"
 end
