@@ -1,0 +1,45 @@
+<!-- <li class="nav-item">
+    <a class="nav-link" href="{{site.baseurl}}/it/">
+        <img class="img-fluid" src="{{site.baseurl}}/assets/images/it.png" width="24px" />
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="{{site.baseurl}}/en/"
+        ><img class="img-fluid" src="{{site.baseurl}}/assets/images/en.png" width="24px" />
+    </a>
+</li> -->
+
+{% comment %}
+{% for lang in site.languages %}
+    {% if lang == site.active_lang %}
+        {{ lang }}
+    {% else %}
+        {% if lang == site.default_lang %}
+            <a href=" {{ page.url }}">{{ lang }}
+                <img class="img-fluid" src="{{site.baseurl}}/assets/images/{{lang}}.png" width="24px" />
+            </a>
+        {% else %}
+            <a href="/{{ lang }}{{ page.url }}">{{ lang }}
+                <img class="img-fluid" src="{{site.baseurl}}/assets/images/{{lang}}.png" width="24px" />
+            </a>
+            {% endif %}
+    {% endif %}
+{% endfor %}
+{% endcomment %}
+
+
+{% for lang in site.languages %}
+    {% if lang == site.default_lang %}
+        <li class="nav-item">
+        <a class="nav-link" href=" {{ page.url }}">
+            <img class="img-fluid" src="{{site.baseurl}}/assets/images/{{lang}}.png" width="24px" /> 
+        </a>
+        </li>
+    {% else %}
+        <li class="nav-item">
+        <a class="nav-link" href="/{{ lang }}{{ page.url }}">
+            <img class="img-fluid" src="{{site.baseurl}}/assets/images/{{lang}}.png" width="24px" />
+        </a>
+        </li>
+    {% endif %}
+{% endfor %}

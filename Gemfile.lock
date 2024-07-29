@@ -64,6 +64,8 @@ GEM
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-paginate (1.1.0)
+    jekyll-polyglot (1.8.0)
+      jekyll (>= 4.0, >= 3.0)
     jekyll-regex-replace (1.1.0)
     jekyll-sass-converter (3.0.0)
       sass-embedded (~> 1.54)
@@ -84,12 +86,12 @@ GEM
     mercenary (0.4.0)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
-    public_suffix (6.0.0)
+    public_suffix (6.0.1)
     rake (13.2.1)
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rexml (3.3.1)
+    rexml (3.3.2)
       strscan
     rouge (4.3.0)
     safe_yaml (1.0.5)
@@ -178,6 +180,7 @@ DEPENDENCIES
   csv
   jekyll-feed
   jekyll-paginate
+  jekyll-polyglot
   jekyll-regex-replace
   jekyll-seo-tag
   jekyll-sitemap
