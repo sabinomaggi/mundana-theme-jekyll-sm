@@ -17,6 +17,10 @@ TRASH
 # post images
 assets/images/*
 
+# exclude posts and pages (at least for now)
+_posts/
+_pages/
+
 # the method below does not work when one has already committed a version of the file
 # not containg any secret, just to document how to use the secrets.yml file; 
 # it is much better to use specific command
