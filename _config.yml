@@ -35,7 +35,7 @@ Argomenti a volte ostici ma che, se vengono affrontati con il tono giusto, posso
 
 # Polyglot
 languages: ["en", "it"]
-default_lang: "it"
+default_lang: "en"
 exclude_from_localization: ["assets/css", "assets/img"]
 parallel_localization: true
 
@@ -70,7 +70,7 @@ highlighter: rouge
 # Paginate v2
 pagination:
   enabled: true
-  # locale: it
+  # locale: en
   offset: 0
   per_page: 8
   permalink: "/page:num/"
