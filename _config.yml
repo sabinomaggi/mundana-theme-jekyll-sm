@@ -4,6 +4,7 @@ description: "Mac e programmazione, con un tocco di retrocomputing"
 logo: "assets/images/logo.png"
 favicon: "assets/images/favicon.ico"
 baseurl: ""
+# siteurl: "http://192.168.1.102"
 # disqus: "sabinomaggi"
 email: "sabino.maggi@gmail.com"
 # mailchimp-list: ""
@@ -19,7 +20,7 @@ plugins:
   - jekyll-paginate-v2
   - jekyll-seo-tag
   - jekyll-regex-replace
-  - jekyll-polyglot
+  # - jekyll-polyglot
 
 authors:
     "Sabino Maggi":
@@ -31,17 +32,6 @@ In questo blog condivido alcuni spunti e idee che derivano da quello che faccio 
 Argomenti a volte ostici ma che, se vengono affrontati con il tono giusto, possono diventare estremamente interessanti e rendere molto più produttivo e flessibile l’uso quotidiano del computer."
       email:          sabino.maggi@gmail.com
       twitter:        https://twitter.com/sabinomaggi
-
-
-# Polyglot
-languages: ["en", "it"]
-default_lang: "en"
-exclude_from_localization: ["assets/css", "assets/img"]
-parallel_localization: true
-
-sass:
-  sourcemap: never
-
 
 # Defaults
 defaults:
@@ -60,22 +50,38 @@ defaults:
     values:
       layout: page
 
-# Syntax
+#--- Syntax ---
 markdown: kramdown
 highlighter: rouge
 
-# # Paginate
+# #---  Paginate ---
 # paginate: 10
 
-# Paginate v2
+#--- Paginate-v2 ---
 pagination:
   enabled: true
   # locale: en
   offset: 0
   per_page: 8
-  permalink: "/page:num/"
+  # permalink: "/page:num/"
   sort_reverse: true
   debug: true
+
+# #--- Polyglot ---
+# languages: [en, it]
+# default_lang: en
+# exclude_from_localization: ["assets/css", "assets/img"]
+# parallel_localization: false
+#
+# sass:
+#   sourcemap: never
+
+#--- Custom variables ---
+# Polyglot does not work well with Paginate-v2
+# define these two variables instead
+locales: [en, it]
+default_locale: en
+
 
 # Exclude metadata and development time dependencies (like Grunt plugins)
 exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]

@@ -9,6 +9,8 @@
     </a>
 </li> -->
 
+
+<!-- remove this block ---
 {% comment %}
 {% for lang in site.languages %}
     {% if lang == site.active_lang %}
@@ -26,20 +28,23 @@
     {% endif %}
 {% endfor %}
 {% endcomment %}
+--- end remove this block -->
 
 
-{% for lang in site.languages %}
-    {% if lang == site.default_lang %}
+{% for lang in site.locales %}
+    {% if lang == site.default_locale %}
         <li class="nav-item">
-        <a class="nav-link" href=" {{ page.url }}">
+        <a class="nav-link" href="/">{{ lang }}
             <img class="img-fluid" src="{{site.baseurl}}/assets/images/{{lang}}.png" width="24px" /> 
         </a>
         </li>
     {% else %}
         <li class="nav-item">
-        <a class="nav-link" href="/{{ lang }}{{ page.url }}">
+        <a class="nav-link" href="/{{ site.baseurl }}{{ lang }}">{{ lang }}
             <img class="img-fluid" src="{{site.baseurl}}/assets/images/{{lang}}.png" width="24px" />
         </a>
         </li>
     {% endif %}
 {% endfor %}
+
+

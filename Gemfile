@@ -18,6 +18,6 @@ group :jekyll_plugins do
     # gem "jekyll-paginate"
     gem "jekyll-seo-tag"
     gem "jekyll-regex-replace"
-    gem "jekyll-polyglot"
+    # gem "jekyll-polyglot"
     gem "jekyll-paginate-v2"
 end
