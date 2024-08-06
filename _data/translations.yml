@@ -1,0 +1,12 @@
+strings:
+  en:
+    home:         "Home"
+    latest_posts: "Latest Posts"
+    all_posts:    "All Posts"
+    featured:     "Featured"
+  it:
+    home:         "Home"
+    latest_posts: "Ultimi articoli"
+    all_posts:    "Tutti gli articoli"
+    featured:     "In evidenza"
+    
