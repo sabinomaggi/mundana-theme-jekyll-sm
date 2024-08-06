@@ -4,10 +4,9 @@ strings:
     latest_posts: "Latest Posts"
     all_posts:    "All Posts"
     featured:     "Featured"
-    read_more:    "Read More"
   it:
     home:         "Home"
     latest_posts: "Ultimi articoli"
     all_posts:    "Tutti gli articoli"
     featured:     "In evidenza"
-    read_more:    "Continua a leggere"
+    
