@@ -170,7 +170,7 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll."
                     strip_newlines | 
                     truncate: 256}}
                     </p>
-                    <a href="{{site.baseurl}}{{post.url}}" class="btn btn-dark">Read More</a>
+                    <a href="{{site.baseurl}}{{post.url}}" class="btn btn-dark">{{strings.read_more}}</a>
                 </div>
                 <div class="col-md-6 d-none d-md-block pr-0" style="background-size:cover;background-image:url({{site.baseurl}}/{{ post.image }});">	
                 </div>
@@ -186,7 +186,7 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll."
 <div class="row mt-3">
     <div class="col-md-8 main-loop">
         <h4 class="font-weight-bold spanborder">
-        <span>All Stories</span>
+        <span>{{strings.all_posts}}</span>
         </h4>
 
         {% for post in paginator.posts %}
