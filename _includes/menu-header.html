@@ -21,7 +21,11 @@
 
 <!--  Replace menu links here -->
 
-{% assign ppl = ppl %}
+{% assign ppl = page.pagination.locale %}
+{% if ppl == nil %}
+    {% assign ppl = page.locale %}
+{% endif %}
+
 {% assign strings = site.data.translations.strings[ppl] %}
 {% assign dates = site.data.translations.dates[ppl] %}
 
