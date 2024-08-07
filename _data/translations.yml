@@ -27,3 +27,8 @@ strings:
     mins_read:      "minuti di lettura"
     
     
+dates:
+  en:
+      date_format:    "%e %b %Y"
+  it:
+      date_format:    "%e %b %Y"
