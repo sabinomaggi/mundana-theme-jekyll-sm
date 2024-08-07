@@ -15,6 +15,13 @@ strings:
     comments:       "Comments"
     min_read:       "min read"
     mins_read:      "mins read"
+    contact_send:   "Please send your message to"
+    contact_reply:  "We will reply as soon as possible"
+    contact_required:   "All fields are required"
+    contact_name:   "Name"
+    contact_email:  "E-mail Address"
+    contact_msg:    "Message"
+    send_btn:       "Send"
   it:
     home:           "Home"
     categories:     "Categorie"
@@ -31,8 +38,12 @@ strings:
     comments:       "Comments"
     min_read:       "minuto di lettura"
     mins_read:      "minuti di lettura"
-    
-    
+    contact_send:   "Please send your message to"
+    contact_reply:  "We will reply as soon as possible"
+    contact_name:   "Nome"
+    contact_email:  "Indirizzo e-mail"
+    contact_msg:    "Testo del messaggio"
+    send_btn:       "Invia"
 dates:
   en:
       date_format:    "%e %b %Y"
