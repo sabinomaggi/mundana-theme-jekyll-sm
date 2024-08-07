@@ -2,6 +2,9 @@ strings:
   en:
     home:           "Home"
     categories:     "Categories"
+    authors:        "Authors"
+    contact:        "Contact"
+    privacy:        "Privacy"
     latest_posts:   "Latest Posts"
     all_posts:      "All Posts"
     featured:       "Featured"
@@ -15,6 +18,9 @@ strings:
   it:
     home:           "Home"
     categories:     "Categorie"
+    authors:        "Autori"
+    contact:        "Contatto"
+    privacy:        "Privacy"
     latest_posts:   "Ultimi articoli"
     all_posts:      "Tutti gli articoli"
     featured:       "In evidenza"

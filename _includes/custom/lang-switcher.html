@@ -31,17 +31,19 @@
 --- end remove this block -->
 
 
-{% for lang in site.locales %}
-    {% if lang == site.default_locale %}
+{% for loc in site.locales %}
+    {% if loc == site.default_locale %}
         <li class="nav-item">
-        <a class="nav-link" href="/">{{ lang }}
-            <img class="img-fluid" src="{{site.baseurl}}/assets/images/{{lang}}.png" width="24px" /> 
+        <a class="nav-link" href="/">
+            <img class="img-fluid" src="{{site.baseurl}}/assets/images/{{loc}}.png" width="24px" />
+            {{ loc | upcase }}
         </a>
         </li>
     {% else %}
         <li class="nav-item">
-        <a class="nav-link" href="/{{ site.baseurl }}{{ lang }}">{{ lang }}
-            <img class="img-fluid" src="{{site.baseurl}}/assets/images/{{lang}}.png" width="24px" />
+        <a class="nav-link" href="/{{ site.baseurl }}{{ loc }}">
+            <img class="img-fluid" src="{{site.baseurl}}/assets/images/{{loc}}.png" width="24px" />
+            {{ loc | upcase }}
         </a>
         </li>
     {% endif %}

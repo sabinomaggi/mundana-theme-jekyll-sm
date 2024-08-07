@@ -19,28 +19,33 @@
 <a target="_blank" class="nav-link" href="https://www.wowthemes.net/donate/">Buy me a coffee <i class="fa fa-coffee text-danger"></i></a>
 </li> -->
 
-
 <!--  Replace menu links here -->
+
+{% assign ppl = ppl %}
+{% assign strings = site.data.translations.strings[ppl] %}
+{% assign dates = site.data.translations.dates[ppl] %}
+
 
 <li class="nav-item">
 <a class="nav-link" href="{{site.baseurl}}/index.html">Home</a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="{{site.baseurl}}/categories.html">Categories</a>
+<a class="nav-link" href="{{site.baseurl}}/categories.html">{{ strings.categories }}</a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="{{site.baseurl}}/authors-list.html">Authors</a>
+<a class="nav-link" href="{{site.baseurl}}/authors-list.html">{{ strings.authors }}</a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="{{site.baseurl}}/contact.html">Contact</a>
+<a class="nav-link" href="{{site.baseurl}}/contact.html">{{ strings.contact }}</a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="{{site.baseurl}}/privacy-policy.html">Privacy</a>
+<a class="nav-link" href="{{site.baseurl}}/privacy-policy.html">{{ strings.privacy }}</a>
 </li>
+
 
 <!-- Lang Switcher -->
 {% include custom/lang-switcher.html %}
