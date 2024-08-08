@@ -35,7 +35,7 @@
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="{{site.baseurl}}/authors-list.html">{{ strings.authors }}</a>
+<a class="nav-link" href="{{site.baseurl}}/{% if loc != site.default_locale %}{{ loc}}/{% endif %}authors-list.html">{{ strings.authors }}</a>
 </li>
 
 <li class="nav-item">
