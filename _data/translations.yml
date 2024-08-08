@@ -2,6 +2,7 @@ strings:
     en:
         home:           "Home"
         categories:     "Categories"
+        tags:           "Tags"
         authors:        "Authors"
         contact:        "Contact"
         privacy:        "Privacy"
@@ -25,6 +26,7 @@ strings:
     it:
         home:           "Home"
         categories:     "Categorie"
+        tags:           "Etichette"
         authors:        "Autori"
         contact:        "Contatto"
         privacy:        "Privacy"

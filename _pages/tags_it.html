@@ -1,8 +1,8 @@
 ---
-title: "Categories"
+title: "Tags"
 layout: default
-permalink: "/categories.html"
-locale: en
+permalink: "/it/tags.html"
+locale: it
 ---
 
 <!-- general way to assign locale according to specific page configuration -->
@@ -16,17 +16,17 @@ locale: en
 
 <div class="container">
     <div class="row justify-content-center">
-
+        
         <div class="col-md-8">
-            <h1 class="font-weight-bold title h6 text-uppercase mb-4">{{ strings.categories }}</h1>
-
-            {% for category in site.categories %}
-                {% assign pages_list = category[1] | where: "locale", loc %}
+            <h1 class="font-weight-bold title h6 text-uppercase mb-4">{{ strings.tags }}</h1>
+            
+            {% for tag in site.tags %}
+                {% assign pages_list = tag[1] | where: "locale", loc %}
                 {% assign len = pages_list | size %}
-                
-                {% if len > 0 %}
-                    <h4 class="font-weight-bold spanborder text-capitalize" id="{{ category[0] | downcase }}">
-                    <span>{{ category[0] }}</span>
+
+                {% if len > 0 %}{% unless tag contains "sticky" or tag contains "featured" %}
+                    <h4 class="font-weight-bold spanborder text-capitalize" id="{{ tag[0] | downcase }}">
+                    <span>{{ tag[0] }}</span>
                     </h4>
 
                     {% for post in pages_list %}
@@ -36,17 +36,17 @@ locale: en
                             {% endif %}
                         {% endif %}
                     {% endfor %}
-                {% endif %}
+                {% endunless %}{% endif %}
 
                 {% assign pages_list = nil %}
                 {% assign group = nil %}
             {% endfor %}
 
         </div>
-
+        
         <div class="col-md-4">
             {% include sidebar-featured.html loc = loc %}
         </div>
-
+        
     </div>
 </div>
