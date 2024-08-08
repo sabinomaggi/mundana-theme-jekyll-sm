@@ -11,7 +11,6 @@ locale: en
 {% endif %}
 
 {% assign strings = site.data.translations.strings[loc] %}
-{% assign dates = site.data.translations.dates[loc] %}
 
 
 <form action="https://formspree.io/{{site.email}}" method="POST">    
