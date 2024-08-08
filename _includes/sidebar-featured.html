@@ -1,14 +1,3 @@
-<!-- REMOVE ME -->
-{% comment %}
-{% if page.pagination.locale == "en" %}
-    {% assign site_tags_featured = site.tags.featured | where: "locale", "en"  %}
-{% else %}
-    {% assign site_tags_featured = site.tags.featured | where: "locale", "it" %}
-{% endif %}
-{% endcomment %}
-<!-- END REMOVE ME -->
-
- 
 <!-- the loc variable is passed from default.html or categories.html through the include statement  -->
 {% assign site_tags_featured = site.tags.featured | where: "locale", loc  %}
 
