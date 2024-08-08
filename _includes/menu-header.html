@@ -21,13 +21,9 @@
 
 <!--  Replace menu links here -->
 
-{% assign ppl = page.pagination.locale %}
-{% if ppl == nil %}
-    {% assign ppl = page.locale %}
-{% endif %}
 
-{% assign strings = site.data.translations.strings[ppl] %}
-{% assign dates = site.data.translations.dates[ppl] %}
+<!-- the loc variable is passed from default.html through the include statement  -->
+{% assign strings = site.data.translations.strings[loc] %}
 
 
 <li class="nav-item">
@@ -43,11 +39,11 @@
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="{{site.baseurl}}/contact.html">{{ strings.contact }}</a>
+<a class="nav-link" href="{{site.baseurl}}/{% if loc != site.default_locale %}{{ loc}}/{% endif %}contact.html">{{ strings.contact }}</a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="{{site.baseurl}}/privacy-policy.html">{{ strings.privacy }}</a>
+<a class="nav-link" href="{{site.baseurl}}/{% if loc != site.default_locale %}{{ loc}}/{% endif %}privacy-policy.html">{{ strings.privacy }}</a>
 </li>
 
 

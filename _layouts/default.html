@@ -35,7 +35,12 @@
 
 <body class="{% if page.url == "/" %} homefirstpage {% endif %}">
 
-    {% assign ppl = page.pagination.locale %}
+    <!-- general way to assign locale according to specific page configuration -->
+    {% assign loc = page.pagination.locale %}
+    {% if loc == nil %}
+        {% assign loc = page.locale %}
+    {% endif %}
+
 
     <!-- Navbar -->
     <nav id="MagicMenu" class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
@@ -46,7 +51,7 @@
         </button>
         <div class="navbar-collapse collapse" id="navbarColor02" style="">
             <ul class="navbar-nav mr-auto d-flex align-items-center">
-               {% include menu-header.html ppl = ppl %}
+               {% include menu-header.html loc = loc %}
             </ul>
             <ul class="navbar-nav ml-auto d-flex align-items-center">
                 {% include search-lunr.html %}

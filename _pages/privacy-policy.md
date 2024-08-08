@@ -1,9 +1,17 @@
 ---
 title: "Privacy Policy"
 permalink: "/privacy-policy.html"
+locale: en
 ---
 
-"{{site.name}}" takes your privacy seriously. To better protect your privacy we provide this privacy policy notice explaining the way your personal information is collected and used.
+<!-- general way to assign locale according to specific page configuration -->
+{% assign loc = page.pagination.locale %}
+{% if loc == nil %}
+    {% assign loc = page.locale %}
+{% endif %}
+
+
+<strong>{{site.name}}</strong> takes your privacy seriously. To better protect your privacy we provide this privacy policy notice explaining the way your personal information is collected and used.
 
 
 #### Collection of Routine Information
@@ -40,4 +48,4 @@ We reserve the right to update or change our Privacy Policy at any time and you 
 
 #### Contact Information
 
-For any questions or concerns regarding the privacy policy, please [contact us here]({{site.baseurl}}/contact.html).
+For any questions or concerns regarding the privacy policy, please [contact us here]({{site.baseurl}}/{% if loc != site.default_locale %}{{ loc}}/{% endif %}contact.html).

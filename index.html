@@ -11,8 +11,14 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll."
 
 <div class="container">
 
-{% assign ppl = page.pagination.locale %}
-{% assign strings = site.data.translations.strings[ppl] %}
+<!-- general way to assign locale according to specific page configuration -->
+{% assign loc = page.pagination.locale %}
+{% if loc == nil %}
+    {% assign loc = page.locale %}
+{% endif %}
+
+{% assign strings = site.data.translations.strings[loc] %}
+
 
 <!-- Begin post excerpts, let's highlight the first 4 posts on top -->
 <h4 class="font-weight-bold spanborder"><span>{{ strings.latest_posts }}</span></h4>

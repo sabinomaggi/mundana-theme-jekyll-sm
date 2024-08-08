@@ -1,7 +1,7 @@
 ---
-title: "Contact"
-permalink: "/contact.html"
-locale: en
+title: "Modulo di contatto"
+permalink: "/it/contact.html"
+locale: it
 ---
 
 <!-- general way to assign locale according to specific page configuration -->
