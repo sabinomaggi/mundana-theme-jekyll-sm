@@ -3,9 +3,9 @@ layout: default
 locale: en
 ---
 
-{% assign pl = page.locale %}
-{% assign strings = site.data.translations.strings[pl] %}
-{% assign dates = site.data.translations.dates[pl] %}
+{% assign loc = page.locale %}
+{% assign strings = site.data.translations.strings[loc] %}
+{% assign dates = site.data.translations.dates[loc] %}
 
 
 {% assign author = site.authors[page.author] %}
