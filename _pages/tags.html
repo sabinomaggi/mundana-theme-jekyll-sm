@@ -32,7 +32,7 @@ locale: en
                     {% for post in pages_list %}
                         {% if post.title != null %}
                             {% if group == null or group == post.group %}
-                                {% include main-loop-card.html %}
+                                {% include short-loop-card.html loc = loc %}
                             {% endif %}
                         {% endif %}
                     {% endfor %}

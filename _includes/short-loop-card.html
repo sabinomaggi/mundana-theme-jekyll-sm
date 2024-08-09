@@ -1,0 +1,21 @@
+<!-- the loc variable is passed from default.html through the include statement  -->
+{% assign strings = site.data.translations.strings[loc] %}
+{% assign dates = site.data.translations.dates[loc] %}
+
+
+<div class="mb-4 justify-content-between main-loop-card">
+
+    <div class="pr-3">
+        <h2 class="row mb-1 h5 font-weight-bold">
+
+        <small class="col-md-3 text-muted">
+            {{ post.date | date: dates.date_format }}
+        </small>
+        <a class="col-md text-primary" href="{{site.baseurl}}{{post.url}}">
+            {{ post.title }}
+        </a>
+
+        </h2>
+    </div>
+
+</div>
