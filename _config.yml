@@ -58,7 +58,7 @@ highlighter: rouge
 pagination:
   enabled: true
   # locale: en
-  offset: 0
+  offset: 4
   per_page: 8
   # permalink: "/page:num/"
   sort_reverse: true
