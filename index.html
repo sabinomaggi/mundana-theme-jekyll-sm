@@ -24,11 +24,11 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll."
 <h4 class="font-weight-bold spanborder"><span>{{ strings.latest_posts }}</span></h4>
 <div class="row remove-site-content-margin">
 
-    {% if page.pagination.locale == site.default_locale %}
-        {% assign site_posts = site.posts | where: "locale", site.default_locale  %}
-    {% else %}
-        {% assign site_posts = site.posts | where: "locale", page.pagination.locale %}
-    {% endif %}
+    <!-- {% if loc == site.default_locale %} -->
+        {% assign site_posts = site.posts | where: "locale", loc  %}
+    <!-- {% else %}
+        {% assign site_posts = site.posts | where: "locale", loc %}
+    {% endif %} -->
 
 
     <!-- latest post -->
