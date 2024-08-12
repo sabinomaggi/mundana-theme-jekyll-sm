@@ -61,10 +61,8 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll."
                 <p class="excerpt">
                 <!-- {{ latest_post.excerpt | strip_html | strip_newlines | truncate: 136 }} -->
                 {{ latest_post.content | strip_html | 
-                    regex_replace: "!\[\]\(.*?\)", "" | 
                     regex_replace: "^.*Fonte.*?\.", "" | 
-                    regex_replace: "\(http.*?\)", "" | 
-                    regex_replace: "[\[\]]", "" | 
+                    regex_replace: "^[-–—].*?\.", "" | 
                     strip_newlines | 
                     truncatewords: 24}}
                 </p>
@@ -184,10 +182,8 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll."
                     <p class="mb-3 lead">
                     <!-- {{ post.excerpt | strip_html | strip_newlines | truncate: 136 }} -->
                     {{ post.content | strip_html | 
-                    regex_replace: "!\[\]\(.*?\)", "" | 
                     regex_replace: "^.*Fonte.*\.", "" | 
-                    regex_replace: "\(http.*?\)", "" | 
-                    regex_replace: "[\[\]]", "" | 
+                    regex_replace: "^[-–—].*?\.", "" | 
                     strip_newlines | 
                     truncatewords: 32}}
                     </p>
