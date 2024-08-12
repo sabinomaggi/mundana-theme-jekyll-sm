@@ -18,6 +18,8 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll."
 {% endif %}
 
 {% assign strings = site.data.translations.strings[loc] %}
+{% assign dates = site.data.translations.dates[loc] %}
+
 
 <!-- choose only posts having the right locale -->
 {% assign site_posts = site.posts | where: "locale", loc  %}
@@ -35,6 +37,7 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll."
         {% assign k = k | plus: 1 %}
     {% endif %}
 {% endfor %}
+
 
 
 
@@ -76,7 +79,7 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll."
                         </span>
                     </small>
                     <small class="text-muted">
-                        {{ latest_post.date | date: '%b %d, %Y' }}
+                        {{ latest_post.date | date: dates.date_format }}
                     </small>
                 </div>
             </div>
@@ -106,7 +109,7 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll."
                         </span>
                     </small>
                     <small class="text-muted">
-                        {{ second_post.date | date: '%b %d, %Y' }}
+                        {{ second_post.date | date: dates.date_format }}
                     </small>
                 </div>
             </div>
@@ -133,7 +136,7 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll."
                         </span>
                     </small>
                     <small class="text-muted">
-                        {{ third_post.date | date: '%b %d, %Y' }}
+                        {{ third_post.date | date: dates.date_format }}
                     </small>
                 </div>
             </div>
@@ -160,7 +163,7 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll."
                         </span>
                     </small>
                     <small class="text-muted">
-                        {{ fourth_post.date | date: '%b %d, %Y' }}
+                        {{ fourth_post.date | date: dates.date_format }}
                     </small>
                 </div>
             </div>
@@ -189,6 +192,16 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll."
                     truncate: 256}}
                     </p>
                     <a href="{{site.baseurl}}{{post.url}}" class="btn btn-dark">{{ strings.read_more }}</a>
+                    <small class="mt-3 d-block text-muted">
+                        In <span class="catlist">
+                        {% for category in fourth_post.categories %}
+                        <a class="text-capitalize text-muted smoothscroll" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">{{ category }}</a><span class="sep">, </span>
+                        {% endfor %}
+                        </span>
+                    </small>
+                    <small class="text-muted">
+                        {{ post.date | date: dates.date_format }}
+                    </small>
                 </div>
                 <div class="col-md-6 d-none d-md-block pr-0" style="background-size:cover;background-image:url({{site.baseurl}}/{{ post.image }});">	
                 </div>

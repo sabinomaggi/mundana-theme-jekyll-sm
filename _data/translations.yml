@@ -52,7 +52,7 @@ dates:
     en:
         date_format:    "%e %b %Y"
     it:
-        date_format:    "%e %b %Y"
+        date_format:    "%e-%b-%Y"
 
 bio:
     en: 
