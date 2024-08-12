@@ -66,7 +66,7 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll."
                     regex_replace: "\(http.*?\)", "" | 
                     regex_replace: "[\[\]]", "" | 
                     strip_newlines | 
-                    truncate: 128}}
+                    truncatewords: 24}}
                 </p>
                 <div>
                     <small class="d-block text-muted">
@@ -189,9 +189,10 @@ description: "Melabit home page, based on the free Mundana theme for Jekyll."
                     regex_replace: "\(http.*?\)", "" | 
                     regex_replace: "[\[\]]", "" | 
                     strip_newlines | 
-                    truncate: 256}}
+                    truncatewords: 32}}
                     </p>
                     <a href="{{site.baseurl}}{{post.url}}" class="btn btn-dark">{{ strings.read_more }}</a>
+                    <hr class="my-4">
                     <small class="mt-3 d-block text-muted">
                         In <span class="catlist">
                         {% for category in fourth_post.categories %}
