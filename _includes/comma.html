@@ -1,10 +1,15 @@
+{% assign loc = page.locale %}
+{% assign strings = site.data.translations.strings[loc] %}
+{% assign dates = site.data.translations.dates[loc] %}
+
+
 <div id="comments-container">
     <!-- javascript will add comments here. loaded from backend and/or submitted successfully -->
 </div>
 
 <h3>Add comment</h3>
-<form id="new-comment-form" action="{{.Site.Params.commentServer}}">
-    <input type="hidden" name="post" value="{{ .File.BaseFileName }}">
+<form id="new-comment-form" action="{{ site.commentserver }}">
+    <input type="hidden" name="post" value="{{ site.basefilename }}">
     <br/><input type="text" name="name" placeholder="Name (required)" required/>
     <br/><input type="email" name="email" placeholder="Email address (required. hashed and used for Gravatar only)" required/>
     <br/><input type="url" name="url" placeholder="Website (optional)"/>
@@ -56,7 +61,7 @@
 
     domReady(async function() {
         let form = document.getElementById("new-comment-form");
-        let commentsUrl = "{{.Site.Params.commentServer}}/{{ .File.BaseFileName }}";
+        let commentsUrl = "{{ site.commentserver }}/{{ site.basefilename }}";
 
         form.addEventListener("submit", (event) => {
             event.preventDefault();
