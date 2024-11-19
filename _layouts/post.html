@@ -142,6 +142,7 @@ locale: en
                     <div>
                 <div>
 
+                {% comment %}
                 <div id="comments" class="mt-5">
                 {%- if page.id -%}
                 <!--Every article has a id, but special pages don't unless you set manually.
@@ -156,6 +157,13 @@ locale: en
                 <script defer src="https://cusdis.com/js/cusdis.es.js"></script>
                 {%- endif -%}
                 </div>
+                {% endcomment %}
+
+                <!-- comma commenting system -->
+                <div class="col-md-10">
+                    {% include comma.html %}
+                </div>
+
             {% endif %}
 
         </div>
