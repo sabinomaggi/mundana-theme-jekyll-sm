@@ -7,15 +7,17 @@
     <!-- javascript will add comments here. loaded from backend and/or submitted successfully -->
 </div>
 
-<h3>Add comment</h3>
+<h3>{{ strings.comment_add }}</h3>
+<h4 class="font-weight-bold spanborder"><span>{{ strings.comment_add }}</span></h4>
+
 <form id="new-comment-form" action="{{ site.commentserver }}">
     <input type="hidden" name="post" value="{{ site.basefilename }}">
-    <br/><input type="text" name="name" placeholder="Name (required)" required/>
-    <br/><input type="email" name="email" placeholder="Email address (required. hashed and used for Gravatar only)" required/>
-    <br/><input type="url" name="url" placeholder="Website (optional)"/>
-    <br/><input type="text" name="special" placeholder="Human check. this website ends on dot.. what? 'com'? 'net'? (required)" required/>
-    <br/><textarea rows="10" name="message" placeholder="Comment (required)" required></textarea>
-    <button id="new-comment-submit" class="btn-ready" type="submit" value="Send">Submit</button>
+    <br/><input type="text" name="name" placeholder=" {{ strings.comment_name }}" required/>
+    <br/><input type="email" name="email" placeholder="{{ strings.comment_email }}" required/>
+    <br/><input type="url" name="url" placeholder="{{ strings.comment_web }}"/>
+    <br/><input type="text" name="special" placeholder="{{ strings.comment_chk }}" required/>
+    <br/><textarea rows="10" name="message" placeholder=" {{ strings.comment_txt }}" required></textarea>
+    <button id="new-comment-submit" class="btn-ready" type="submit" value="Send">{{ strings.send_btn }}</button>
 </form>
 
 <template id="comment-template">

@@ -23,6 +23,12 @@ strings:
         contact_email:  "E-mail Address"
         contact_msg:    "Message"
         send_btn:       "Send"
+        comment_add:    "Add a comment"
+        comment_name:   "* Name"
+        comment_email:  "* Email address (hashed and used for Gravatar only)"
+        comment_web:    "Website"
+        comment_chk:    "* Human check. this website ends on dot.. what? (com, net, ...)"
+        comment_txt:    "* Comment"
     it:
         home:           "Home"
         categories:     "Categorie"
@@ -47,6 +53,12 @@ strings:
         contact_email:  "Indirizzo e-mail"
         contact_msg:    "Testo del messaggio"
         send_btn:       "Invia"
+        comment_add:    "Aggiungi un commento"
+        comment_name:   "* Nome"
+        comment_email:  "* Indirizzo email (cifrato e usato solo per Gravatar)"
+        comment_web:    "Sito web"
+        comment_chk:    "* Human check. this website ends on dot.. what? (com, net, ...)"
+        comment_txt:    "* Commento"
 
 dates:
     en:
