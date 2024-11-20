@@ -7,18 +7,63 @@
     <!-- javascript will add comments here. loaded from backend and/or submitted successfully -->
 </div>
 
-<h3>{{ strings.comment_add }}</h3>
+<!-- <h3>{{ strings.comment_add }}</h3> -->
 <h4 class="font-weight-bold spanborder"><span>{{ strings.comment_add }}</span></h4>
 
-<form id="new-comment-form" action="{{ site.commentserver }}">
-    <input type="hidden" name="post" value="{{ site.basefilename }}">
-    <br/><input type="text" name="name" placeholder=" {{ strings.comment_name }}" required/>
+<!-- <form id="new-comment-form" action="{{ site.commentserver }}">
+    <input type="hidden" name="post" value="{{ page.name }}">
+    <br/><input type="text" name="name" placeholder="{{ strings.comment_name }}" required/>
     <br/><input type="email" name="email" placeholder="{{ strings.comment_email }}" required/>
     <br/><input type="url" name="url" placeholder="{{ strings.comment_web }}"/>
     <br/><input type="text" name="special" placeholder="{{ strings.comment_chk }}" required/>
     <br/><textarea rows="10" name="message" placeholder=" {{ strings.comment_txt }}" required></textarea>
     <button id="new-comment-submit" class="btn-ready" type="submit" value="Send">{{ strings.send_btn }}</button>
+</form> -->
+
+
+<form id="new-comment-form" action="{{ site.commentserver }}">
+    <input type="hidden" name="post" value="{{ page.name }}">
+
+    <div class="form-group">
+        <label for="comment-name">Name</label>
+        <input id="comment-name" type="text" name="name" class="form-control" placeholder="{{ strings.comment_name }}" required />
+    </div>
+
+    <div class="form-group">
+        <label for="comment-email">Email address</label>
+        <input id="comment-email" type="email" name="email" class="form-control" aria-describedby="email-note" placeholder="{{ strings.comment_email }}" />
+        <small id="email-note" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="comment-url">Website</label>
+        <input id="comment-url" type="url" name="url" class="form-control" placeholder="{{ strings.comment_web }}" />
+    </div>
+
+    <div class="form-group">
+        <label for="comment-area">Comment</label>
+        <textarea id="comment-area" name="message" class="form-control" rows="5" placeholder="{{ strings.comment_txt }}" required >
+        </textarea>
+    </div>
+
+    <!-- <div class="form-group">
+        <label for="comment-check">Check me</label>
+        <input id="comment-name" type="text" name="special" class="form-control" placeholder="{{ strings.comment_chk }}" required />
+    </div> -->
+
+    <div class="form-check">
+        <input id="comment-check" type="checkbox" name="special" class="form-check-input" required />
+        <label for="comment-check" class="form-check-label">Check me out</label>
+    </div>
+
+    <button id="new-comment-submit" type="submit" class="btn btn-primary" value="Send">{{ strings.send_btn }}</button>
 </form>
+
+
+
+
+
+
 
 <template id="comment-template">
     <article id="comment" class="comment">
@@ -63,7 +108,7 @@
 
     domReady(async function() {
         let form = document.getElementById("new-comment-form");
-        let commentsUrl = "{{ site.commentserver }}/{{ site.basefilename }}";
+        let commentsUrl = "{{ site.commentserver }}/{{ page.name }}";
 
         form.addEventListener("submit", (event) => {
             event.preventDefault();
