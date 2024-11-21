@@ -53,7 +53,7 @@
 </form>
 
 
-<template id="comment-template">
+<!-- <template id="comment-template">
     <article id="comment" class="comment">
         <img class="commentAvatar" src="https://www.gravatar.com/avatar/@hash?d=mm&s=80">
         <div class="commentRight">
@@ -62,8 +62,29 @@
             <div class="commentMessage">@message</div>
         </div>
     </article>
+</template> -->
+
+
+<template id="comment-template">
+<div class="card border-primary rounded-0 mb-2">
+    <div class="d-flex flex-row flex-wrap">
+        <div class="card-block">
+            <img src="https://www.gravatar.com/avatar/@hash?d=mm&s=80">
+        </div>
+        <div class="card-header flex-fill">
+            <h5 >@name</h5>
+            <time datetime="{{ dates.date_format }}">@date"</time>
+        </div>
+    </div>
+    <div class="flex-column">
+        <div class="card-body">
+            <p class="card-text">@message</p>
+        </div>
+    </div>
+</div>
 </template>
-    
+
+
 <script language="javascript">
     var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -124,7 +145,7 @@
                 });
                 button = document.querySelector('#new-comment-submit');
                 if (response.ok) {
-                    button.textContent = 'Sent!';
+                    button.textContent = 'Sent successfully!';
                     button.className = 'btn-ok';
                     comment = await response.json();
                     addComment(comment);
