@@ -8,7 +8,7 @@
 </div>
 
 <!-- <h3>{{ strings.comment_add }}</h3> -->
-<h4 class="font-weight-bold spanborder"><span>{{ strings.comment_add }}</span></h4>
+<h4 class="font-weight-bold spanborder mt-4"><span>{{ strings.comment_add }}</span></h4>
 
 <!-- <form id="new-comment-form" action="{{ site.commentserver }}">
     <input type="hidden" name="post" value="{{ page.name }}">
@@ -24,16 +24,18 @@
     <input type="hidden" name="post" value="{{ page.name }}">
     <div class="form-group">
         <!-- <label for="comment-name">Name</label> -->
-        <input id="comment-name" type="text" name="name" class="form-control" placeholder="{{ strings.comment_name }}" required />
+        <input id="comment-name" type="text" name="name" class="form-control" aria-describedby="name-note" placeholder="{{ strings.comment_name }}" required />
+        <small id="name-note" class="form-text text-muted">{{ strings.comment_name_note }}</small>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group"> -->
         <!-- <label for="comment-email">Email address</label> -->
-        <input id="comment-email" type="email" name="email" class="form-control" aria-describedby="email-note" placeholder="{{ strings.comment_email }}" />
-        <small id="email-note" class="form-text text-muted">{{ strings.comment_email_note }}</small>
-    </div>
+        <!-- <input id="comment-email" type="email" name="email" class="form-control" aria-describedby="email-note" placeholder="{{ strings.comment_email }}" /> -->
+        <!-- <small id="email-note" class="form-text text-muted">{{ strings.comment_email_note }}</small> -->
+    <!-- </div> -->
     <div class="form-group">
         <!-- <label for="comment-url">Website</label> -->
-        <input id="comment-url" type="url" name="url" class="form-control" placeholder="{{ strings.comment_web }}" />
+        <input id="comment-url" type="url" name="url" class="form-control" aria-describedby="url-note" placeholder="{{ strings.comment_web }}" />
+        <small id="url-note" class="form-text text-muted">{{ strings.comment_web_note }}</small>
     </div>
     <div class="form-group">
         <!-- <label for="comment-area">Comment</label> -->
@@ -46,7 +48,7 @@
     <div class="form-group">
     <div class="form-check">
         <input id="comment-check" type="checkbox" name="special" class="form-check-input" required />
-        <label for="comment-check" class="form-check-label">{{ strings.comment_chk_alt }}</label>
+        <label for="comment-check" class="form-check-label">{{ strings.comment_chk }}</label>
     </div>
     </div>
     <button id="new-comment-submit" type="submit" class="btn btn-primary" value="Send">{{ strings.send_btn }}</button>
@@ -69,11 +71,12 @@
 <div class="card border-primary rounded-0 mb-2">
     <div class="d-flex flex-row flex-wrap">
         <div class="card-block">
-            <img src="https://www.gravatar.com/avatar/@hash?d=mm&s=80">
+            <img src={{ "https://icotar.com/avatar/" | append: "@id" | append: ".png"}}>
         </div>
         <div class="card-header flex-fill">
-            <h5 >@name</h5>
-            <time datetime="{{ dates.date_format }}">@date"</time>
+            <h5>@name</h5>
+            <!-- <time datetime="{{ dates.date_format }}">{{"@date" | date: "%Y" }}</time> -->
+            <div>@dateloc</div>
         </div>
     </div>
     <div class="flex-column">
@@ -105,14 +108,23 @@
         var txt = template.innerHTML;
         var d = new Date(data.Ts);
         var date = d.getDate() + " " + monthNames[d.getMonth()] + ", " + d.getFullYear() + " at " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+        
+        const dateopts = {weekday: "long", day: "numeric", month: "long", year: "numeric", hour: "numeric", minute: "numeric", hour12: false};
+        var dateLocale = d.toLocaleString("{{loc}}", options = dateopts);
+       
         txt = txt.replace('@hash', data.Hash)
                   .replace('@date', date)
+                  .replace('@dateloc', dateLocale)
                   .replace('@name', data.Author)
+                  .replace('@id', data.Author)
                   .replace('@message', data.Message)
                   .replace('@url', data.Link);
         let temp = document.createElement('template');
         temp.innerHTML = txt;
         container.appendChild(temp.content.firstElementChild);
+        // console.log(container)
+        // console.log(dateLocale)
+        // console.log("{{loc}}")
     };
 
     domReady(async function() {
