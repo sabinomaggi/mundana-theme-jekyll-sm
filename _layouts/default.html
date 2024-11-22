@@ -28,9 +28,13 @@
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
     
-    <!-- marked.js for parsing markdown (https://github.com/markedjs/marked) -->
+    <!-- Marked for parsing markdown (https://github.com/markedjs/marked) -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> -->
     <script src="{{site.baseurl}}/assets/js/marked.min.js"></script>
+    
+    <!-- DOMPurify sanitizer for HTML (https://github.com/cure53/DOMPurify) -->
+    <!-- download from https://raw.githubusercontent.com/cure53/DOMPurify/refs/heads/main/dist/purify.min.js -->
+    <script src="{{site.baseurl}}/assets/js/purify.min.js"></script>
     
     {% include tracking-header.html %}
 

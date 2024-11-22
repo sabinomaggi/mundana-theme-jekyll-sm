@@ -87,7 +87,7 @@
 NOTE: to avoid loading the script every time the comments section is loaded, 
 it is preferable to load the script in the <head> section of default.html 
 -->
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> -->
 
 
 <script language="javascript">
@@ -104,7 +104,7 @@ it is preferable to load the script in the <head> section of default.html
     } 
 
     marked.use({
-        breaks: true, 
+        breaks: true,
         gfm: true,
     });
 
@@ -121,6 +121,11 @@ it is preferable to load the script in the <head> section of default.html
         messageHTML = marked.parse(data.Message)
         console.log("parsed messageHTML:", messageHTML)
         
+        messagePure = DOMPurify.sanitize(messageHTML, {USE_PROFILES: {html: true}});
+        console.log("parsed messagePure:", messagePure)
+        // test = DOMPurify.sanitize(marked.parse(`<img src="x" onerror="alert('not happening')">`));
+        // console.log("test:", test);
+       
         var d = new Date(data.Ts);
         var date = d.getDate() + " " + monthNames[d.getMonth()] + ", " + d.getFullYear() + " at " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         
@@ -133,7 +138,7 @@ it is preferable to load the script in the <head> section of default.html
                   .replace('@dateloc', dateLocale)
                   .replace('@name', data.Author)
                   .replace('@id', data.Author)
-                  .replace('@message', messageHTML)
+                  .replace('@message', messagePure)
                   .replace('@url', data.Link);
         let temp = document.createElement('template');
         temp.innerHTML = txt;
