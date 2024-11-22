@@ -81,7 +81,17 @@
 </template>
 
 
+
+
+<!-- Load marked.js for parsing markdown (https://github.com/markedjs/marked)
+NOTE: to avoid loading the script every time the comments section is loaded, 
+it is preferable to load the script in the <head> section of default.html 
+-->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+
 <script language="javascript">
+
     var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     // from https://stackoverflow.com/questions/9899372/vanilla-javascript-equivalent-of-jquerys-ready-how-to-call-a-function-whe
@@ -92,21 +102,29 @@
             document.addEventListener("DOMContentLoaded", fn);
         }
     } 
-    // from: https://getbootstrap.com/docs/4.0/components/popovers/
-    $(function () {
-      $('[data-toggle="popover"]').popover()
-    })
-    
+
+    marked.use({
+        breaks: true, 
+        gfm: true,
+    });
+
     var addComment = function (data) {
-        console.log("adding comment", data);
         const container = document.getElementById("comments-container");
         const template = document.getElementById('comment-template');
 
         var txt = template.innerHTML;
+        // console.log("loaded txt:", txt)
+        // console.log("data.Message:", data.Message)
+        
+        // text of comment is in variable data.Message
+        // convert comment in Markdown to HTML 
+        messageHTML = marked.parse(data.Message)
+        console.log("parsed messageHTML:", messageHTML)
+        
         var d = new Date(data.Ts);
         var date = d.getDate() + " " + monthNames[d.getMonth()] + ", " + d.getFullYear() + " at " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         
-        // change date according to blog language
+        // change date format according to blog language
         const dateopts = {weekday: "long", day: "numeric", month: "long", year: "numeric", hour: "numeric", minute: "numeric", hour12: false};
         var dateLocale = d.toLocaleString("{{loc}}", options = dateopts);
        
@@ -115,14 +133,15 @@
                   .replace('@dateloc', dateLocale)
                   .replace('@name', data.Author)
                   .replace('@id', data.Author)
-                  .replace('@message', data.Message)
+                  .replace('@message', messageHTML)
                   .replace('@url', data.Link);
         let temp = document.createElement('template');
         temp.innerHTML = txt;
         container.appendChild(temp.content.firstElementChild);
         // console.log(container)
         // console.log(dateLocale)
-        // console.log("{{loc}}")
+        console.log("locale:", "{{loc}}")
+        // console.log(txt)
     };
 
     domReady(async function() {
