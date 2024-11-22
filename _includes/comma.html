@@ -92,6 +92,13 @@ it is preferable to load the script in the <head> section of default.html
 
 <script language="javascript">
 
+    // marked configuration
+    marked.use({
+        breaks: true,
+        gfm: true,
+    });
+
+    // not necessary here; date localization is handled by value of Jekyll page.locale variable
     var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     // from https://stackoverflow.com/questions/9899372/vanilla-javascript-equivalent-of-jquerys-ready-how-to-call-a-function-whe
@@ -103,11 +110,6 @@ it is preferable to load the script in the <head> section of default.html
         }
     } 
 
-    marked.use({
-        breaks: true,
-        gfm: true,
-    });
-
     var addComment = function (data) {
         const container = document.getElementById("comments-container");
         const template = document.getElementById('comment-template');
@@ -115,21 +117,21 @@ it is preferable to load the script in the <head> section of default.html
         var txt = template.innerHTML;
         // console.log("loaded txt:", txt)
         // console.log("data.Message:", data.Message)
+       
+        // text of comment is in variable data.Message and might be in markdown
+        // the lines below convert markdown comment to HTML 
+        messageMD = data.Message;
+        messageMD = messageMD.replace("<", "&#60;").replace(">", "&#62;");
+        messageHTML = marked.parse(messageMD)
+        // console.log("parsed messageHTML:", messageHTML)
         
-        // text of comment is in variable data.Message
-        // convert comment in Markdown to HTML 
-        messageHTML = marked.parse(data.Message)
-        console.log("parsed messageHTML:", messageHTML)
-        
-        messagePure = DOMPurify.sanitize(messageHTML, {USE_PROFILES: {html: true}});
-        console.log("parsed messagePure:", messagePure)
-        // test = DOMPurify.sanitize(marked.parse(`<img src="x" onerror="alert('not happening')">`));
-        // console.log("test:", test);
+        messagePURE = DOMPurify.sanitize(messageHTML, {USE_PROFILES: {html: true}});
+        // console.log("parsed messagePURE:", messagePURE)
        
         var d = new Date(data.Ts);
         var date = d.getDate() + " " + monthNames[d.getMonth()] + ", " + d.getFullYear() + " at " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         
-        // change date format according to blog language
+        // change date format according to Jekyll page.locale variable
         const dateopts = {weekday: "long", day: "numeric", month: "long", year: "numeric", hour: "numeric", minute: "numeric", hour12: false};
         var dateLocale = d.toLocaleString("{{loc}}", options = dateopts);
        
@@ -138,14 +140,14 @@ it is preferable to load the script in the <head> section of default.html
                   .replace('@dateloc', dateLocale)
                   .replace('@name', data.Author)
                   .replace('@id', data.Author)
-                  .replace('@message', messagePure)
+                  .replace('@message', messagePURE)
                   .replace('@url', data.Link);
         let temp = document.createElement('template');
         temp.innerHTML = txt;
         container.appendChild(temp.content.firstElementChild);
         // console.log(container)
         // console.log(dateLocale)
-        console.log("locale:", "{{loc}}")
+        // console.log("locale:", "{{loc}}")
         // console.log(txt)
     };
 
