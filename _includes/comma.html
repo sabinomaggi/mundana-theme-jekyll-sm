@@ -7,7 +7,7 @@
     <!-- javascript will add comments here. loaded from backend and/or submitted successfully -->
 </div>
 
-<!-- <h3>{{ strings.comment_add }}</h3> -->
+
 <h4 class="font-weight-bold spanborder mt-4"><span>{{ strings.comment_add }}</span></h4>
 
 <!-- <form id="new-comment-form" action="{{ site.commentserver }}">
@@ -23,9 +23,8 @@
 <form id="new-comment-form" action="{{ site.commentserver }}">
     <input type="hidden" name="post" value="{{ page.name }}">
     <div class="form-group">
-        <!-- <label for="comment-name">Name</label> -->
         <input id="comment-name" type="text" name="name" class="form-control" aria-describedby="name-note" placeholder="{{ strings.comment_name }}" required />
-        <small id="name-note" class="form-text text-muted">{{ strings.comment_name_note }}</small>
+        <!-- <small id="name-note" class="form-text text-muted">{{ strings.comment_name_note }}</small> -->
     </div>
     <!-- <div class="form-group"> -->
         <!-- <label for="comment-email">Email address</label> -->
@@ -33,23 +32,17 @@
         <!-- <small id="email-note" class="form-text text-muted">{{ strings.comment_email_note }}</small> -->
     <!-- </div> -->
     <div class="form-group">
-        <!-- <label for="comment-url">Website</label> -->
         <input id="comment-url" type="url" name="url" class="form-control" aria-describedby="url-note" placeholder="{{ strings.comment_web }}" />
-        <small id="url-note" class="form-text text-muted">{{ strings.comment_web_note }}</small>
+        <!-- <small id="url-note" class="form-text text-muted">{{ strings.comment_web_note }}</small> -->
     </div>
     <div class="form-group">
-        <!-- <label for="comment-area">Comment</label> -->
         <textarea id="comment-area" name="message" class="form-control" rows="5" placeholder="{{ strings.comment_txt }}" required ></textarea>
     </div>
-    <!-- <div class="form-group">
-        <label for="comment-check">Check me</label>
-        <input id="comment-name" type="text" name="special" class="form-control" placeholder="{{ strings.comment_chk }}" required />
-    </div> -->
     <div class="form-group">
-    <div class="form-check">
-        <input id="comment-check" type="checkbox" name="special" class="form-check-input" required />
-        <label for="comment-check" class="form-check-label">{{ strings.comment_chk }}</label>
-    </div>
+        <div class="form-check">
+            <input id="comment-check" type="checkbox" name="special" class="form-check-input" required />
+            <label for="comment-check" class="form-check-label">{{ strings.comment_chk }}</label>
+        </div>
     </div>
     <button id="new-comment-submit" type="submit" class="btn btn-primary" value="Send">{{ strings.send_btn }}</button>
 </form>
@@ -113,6 +106,7 @@
         var d = new Date(data.Ts);
         var date = d.getDate() + " " + monthNames[d.getMonth()] + ", " + d.getFullYear() + " at " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         
+        // change date according to blog language
         const dateopts = {weekday: "long", day: "numeric", month: "long", year: "numeric", hour: "numeric", minute: "numeric", hour12: false};
         var dateLocale = d.toLocaleString("{{loc}}", options = dateopts);
        
