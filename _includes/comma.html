@@ -99,6 +99,10 @@
             document.addEventListener("DOMContentLoaded", fn);
         }
     } 
+    // from: https://getbootstrap.com/docs/4.0/components/popovers/
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
     
     var addComment = function (data) {
         console.log("adding comment", data);
@@ -148,7 +152,7 @@
         }
 
          async function sendData() {
-            document.querySelector('#new-comment-submit').textContent = 'Sending....';
+            document.querySelector('#new-comment-submit').textContent = "{{ strings.send_btn_sending }}";
             const formData = new FormData(form);
             try {
                 const response = await fetch(commentsUrl, {
@@ -157,15 +161,26 @@
                 });
                 button = document.querySelector('#new-comment-submit');
                 if (response.ok) {
-                    button.textContent = 'Sent successfully!';
-                    button.className = 'btn-ok';
+                    button.textContent = "{{ strings.send_btn_ok }}";
+                    button.className = "btn btn-dark";
                     comment = await response.json();
                     addComment(comment);
+                    // comment sent successfully, now it is possible to clean the comment form
+                    document.getElementById("comment-name").value = "";
+                    document.getElementById("comment-url").value = "";
+                    document.getElementById("comment-area").value = "";
+                    document.getElementById("comment-check").checked = false;
                 } else {
                     button.className = 'btn-err';
                     const message = await response.text();
                     button.textContent = 'failed with status ' + response.status + ' ' + message;
                 }
+                // toggle state of send button after a timeout
+                setTimeout(function(){
+                    button.textContent = "{{ strings.send_btn }}";
+                    button.className = "btn btn-primary";
+                }, 4000);
+                
             } catch (e) {
                 button.textcontent = 'failed with error ' + e;
                 console.error(e);
