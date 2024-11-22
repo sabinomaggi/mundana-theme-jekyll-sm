@@ -114,27 +114,21 @@ locale: en
             {% endif %}
 
              <!-- Author Box -->
-                {% if page.author %}				
-                <div class="row mt-5">
-                    <div class="col-md-2 align-self-center">
-                        {% if author.avatar %}
-                            <img class="rounded-circle" src="{{site.baseurl}}/{{author.avatar}}" alt="{{author.name}}" width="90"/>
-                        {% endif %} 
-                    </div>
-                    <div class="col-md-10">		
-                        <h5 class="font-weight-bold">{{ strings.written_by }} {{ author.name }} {% if author.twitter %}<span><a target="_blank" href="{{ author.twitter }}" class="btn btn-outline-success btn-sm btn-round ml-2">{{ strings.follow }}</a></span>{% endif %}</h5>
-                        {{ author.bio }}
-                    </div>
-                </div>				
-                {% endif %}
+            {% if page.author %}				
+            <div class="row mt-5">
+                <div class="col-md-2 align-self-center">
+                    {% if author.avatar %}
+                        <img class="rounded-circle" src="{{site.baseurl}}/{{author.avatar}}" alt="{{author.name}}" width="90"/>
+                    {% endif %} 
+                </div>
+                <div class="col-md-10">		
+                    <h5 class="font-weight-bold">{{ strings.written_by }} {{ author.name }} {% if author.twitter %}<span><a target="_blank" href="{{ author.twitter }}" class="btn btn-outline-success btn-sm btn-round ml-2">{{ strings.follow }}</a></span>{% endif %}</h5>
+                    {{ author.bio }}
+                </div>
+            </div>				
+            {% endif %}
 
             <!-- Comments -->
-            <!-- {% comment %}
-            {% if page.comments != false %}
-                {% include comments.html %}
-            {% endif %}
-            {% endcomment %} -->
-
             {% if page.comments != false %}
                 <div class="row mt-5">
                     <div class="col-md-10">
@@ -142,26 +136,14 @@ locale: en
                     <div>
                 <div>
 
-                {% comment %}
-                <div id="comments" class="mt-5">
-                {%- if page.id -%}
-                <!--Every article has a id, but special pages don't unless you set manually.
-                This prevents Cusdis from appear everywhere-->
-                <div id="cusdis_thread"
-                    data-host = {{ site.data.secrets.cusdis-host }}
-                    data-app-id = {{ site.data.secrets.cusdis-id }}
-                    data-page-id = "{{ page.id }}"
-                    data-page-url = "{{ site.url }}{{ page.baseurl }}{{ page.url }}"
-                    data-page-title = "{{ page.title }}"
-                ></div>
-                <script defer src="https://cusdis.com/js/cusdis.es.js"></script>
-                {%- endif -%}
-                </div>
-                {% endcomment %}
+                <!-- original Disqus comments -->
+                <!-- {% comment %}
+                {% include comments.html %}
+                {% endcomment %} -->
 
                 <!-- comma commenting system -->
                 <div>
-                    {% include comma.html %}
+                    {% include comma-comments.html %}
                 </div>
             {% endif %}
 
