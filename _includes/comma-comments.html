@@ -120,12 +120,12 @@ it is preferable to load the script in the <head> section of default.html
        
         // text of comment is in variable data.Message and might be in markdown
         // the lines below convert markdown comment to HTML 
-        messageMD = data.Message;
+        var messageMD = data.Message;
         messageMD = messageMD.replace("<", "&#60;").replace(">", "&#62;");
-        messageHTML = marked.parse(messageMD)
+        const messageHTML = marked.parse(messageMD)
         // console.log("parsed messageHTML:", messageHTML)
         
-        messagePURE = DOMPurify.sanitize(messageHTML, {USE_PROFILES: {html: true}});
+        const messagePURE = DOMPurify.sanitize(messageHTML, {USE_PROFILES: {html: true}});
         // console.log("parsed messagePURE:", messagePURE)
        
         var d = new Date(data.Ts);

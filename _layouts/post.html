@@ -114,7 +114,7 @@ locale: en
             {% endif %}
 
              <!-- Author Box -->
-            {% if page.author %}				
+            {% if page.author %}
             <div class="row mt-5">
                 <div class="col-md-2 align-self-center">
                     {% if author.avatar %}
@@ -125,7 +125,7 @@ locale: en
                     <h5 class="font-weight-bold">{{ strings.written_by }} {{ author.name }} {% if author.twitter %}<span><a target="_blank" href="{{ author.twitter }}" class="btn btn-outline-success btn-sm btn-round ml-2">{{ strings.follow }}</a></span>{% endif %}</h5>
                     {{ author.bio }}
                 </div>
-            </div>				
+            </div>
             {% endif %}
 
             <!-- Comments -->
