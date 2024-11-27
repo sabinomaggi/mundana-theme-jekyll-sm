@@ -1,11 +1,12 @@
-# Site
+#--- Site ---
 name: "Melabit"
 description: "Mac e programmazione, con un tocco di retrocomputing"
 logo: "assets/images/logo.png"
 favicon: "assets/images/favicon.ico"
 baseurl: ""
-# siteurl: "http://192.168.1.102"
-siteurl: "http://152.70.43.19"
+siteurl: "http://192.168.1.102"
+## siteurl: "http://152.70.43.19"
+## siteurl: "http://94.237.81.102"
 # disqus: "sabinomaggi"
 email: "sabino.maggi@gmail.com"
 # mailchimp-list: ""
@@ -13,7 +14,7 @@ email: "sabino.maggi@gmail.com"
 include: ["_pages"]
 permalink: /:year/:month/:day/:title/
 
-# Plugins
+#--- Plugins ---
 plugins: 
   - jekyll-feed
   - jekyll-sitemap
@@ -31,7 +32,7 @@ authors:
       email:          sabino.maggi@gmail.com
       twitter:        https://twitter.com/sabinomaggi
 
-# Defaults
+#--- Defaults ---
 defaults:
 
   # all posts
@@ -81,8 +82,9 @@ locales: [en, it]
 default_locale: en
 
 #--- Comma comments ---
-# commentserver: http://localhost:5888
-commentserver: http://152.70.43.19:5888
+commentserver: http://localhost:5888
+## commentserver: http://152.70.43.19:5888
+## commentserver: http://94.237.81.102:5888
 
 # Exclude metadata and development time dependencies (like Grunt plugins)
 exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
