@@ -23,9 +23,8 @@
 <form id="new-comment-form" action="{{ site.commentserver }}">
     <input type="hidden" name="post" value="{{ loc }}-{{ page.name }}">
     <div class="form-group">
-        <label for="comment-name">{{ strings.comment_name }}</label>
-        <input id="comment-name" type="text" name="name" class="form-control" aria-describedby="name-note" required />
-        <!-- <input id="comment-name" type="text" name="name" class="form-control" aria-describedby="name-note" placeholder="{{ strings.comment_name }}" required /> -->
+        <label for="comment-name-lbl">{{ strings.comment_name }}</label>
+        <input id="comment-name" type="text" name="name" class="form-control" aria-labelledby="comment-name-lbl" required />
         <!-- <small id="name-note" class="form-text text-muted">{{ strings.comment_name_note }}</small> -->
     </div>
     <!-- <div class="form-group"> -->
@@ -34,19 +33,18 @@
         <!-- <small id="email-note" class="form-text text-muted">{{ strings.comment_email_note }}</small> -->
     <!-- </div> -->
     <div class="form-group">
-        <label for="comment-url">{{ strings.comment_url }}</label>
-        <input id="comment-url" type="url" name="url" class="form-control" aria-describedby="url-note" placeholder="{{ strings.comment_url_note }}" />
+        <label for="comment-url-lbl">{{ strings.comment_url }}</label>
+        <input id="comment-url" type="url" name="url" class="form-control" aria-labelledby="comment-url-lbl" placeholder="{{ strings.comment_url_note }}" />
          <!-- <small id="url-note" class="form-text text-muted">{{ strings.comment_url_note }}</small> -->
     </div>
     <div class="form-group">
-        <label for="comment-area">{{ strings.comment_txt }}</label>
-        <textarea id="comment-area" name="message" class="form-control" rows="5" required ></textarea>
-        <!-- <textarea id="comment-area" name="message" class="form-control" rows="5" placeholder="{{ strings.comment_txt }}" required ></textarea> -->
+        <label for="comment-area-lbl">{{ strings.comment_txt }}</label>
+        <textarea id="comment-area" name="message" class="form-control" aria-labelledby="comment-area-lbl" rows="5" required ></textarea>
     </div>
     <div class="form-group">
         <div class="form-check">
-            <input id="comment-check" type="checkbox" name="special" class="form-check-input" required />
-            <label for="comment-check" class="form-check-label">{{ strings.comment_chk }}</label>
+            <input id="comment-check" type="checkbox" name="special" class="form-check-input" aria-labelledby="comment-check-lbl" required />
+            <label for="comment-check-lbl" class="form-check-label">{{ strings.comment_chk }}</label>
         </div>
     </div>
     <button id="new-comment-submit" type="submit" class="btn btn-primary" value="Send">{{ strings.send_btn }}</button>
