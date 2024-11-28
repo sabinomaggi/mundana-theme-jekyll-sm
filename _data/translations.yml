@@ -35,6 +35,7 @@ strings:
         comment_chk:    "Check me out"
         # comment_chk_alt:    "* Human check. this website ends on dot.. what? (com, net, ...)"
         comment_txt:    "Comment"
+        comment_preview: "Comment preview"
     it:
         home:           "Home"
         categories:     "Categorie"
@@ -71,6 +72,7 @@ strings:
         comment_chk:    "Selezionami"
         # comment_chk_alt:    "* Human check. this website ends on dot.. what? (com, net, ...)"
         comment_txt:    "Commento"
+        comment_preview: "Anteprima commento"
 
 dates:
     en:

@@ -23,8 +23,8 @@
 <form id="new-comment-form" action="{{ site.commentserver }}">
     <input type="hidden" name="post" value="{{ loc }}-{{ page.name }}">
     <div class="form-group">
-        <label for="comment-name-lbl">{{ strings.comment_name }}</label>
-        <input id="comment-name" type="text" name="name" class="form-control" aria-labelledby="comment-name-lbl" required />
+        <label for="lbl-comment-name">{{ strings.comment_name }}</label>
+        <input id="comment-name" type="text" name="name" class="form-control" aria-labelledby="lbl-comment-name" required />
         <!-- <small id="name-note" class="form-text text-muted">{{ strings.comment_name_note }}</small> -->
     </div>
     <!-- <div class="form-group"> -->
@@ -33,18 +33,22 @@
         <!-- <small id="email-note" class="form-text text-muted">{{ strings.comment_email_note }}</small> -->
     <!-- </div> -->
     <div class="form-group">
-        <label for="comment-url-lbl">{{ strings.comment_url }}</label>
-        <input id="comment-url" type="url" name="url" class="form-control" aria-labelledby="comment-url-lbl" placeholder="{{ strings.comment_url_note }}" />
+        <label for="lbl-comment-url">{{ strings.comment_url }}</label>
+        <input id="comment-url" type="url" name="url" class="form-control" aria-labelledby="lbl-comment-url" placeholder="{{ strings.comment_url_note }}" />
          <!-- <small id="url-note" class="form-text text-muted">{{ strings.comment_url_note }}</small> -->
     </div>
     <div class="form-group">
-        <label for="comment-area-lbl">{{ strings.comment_txt }}</label>
-        <textarea id="comment-area" name="message" class="form-control" aria-labelledby="comment-area-lbl" rows="5" required ></textarea>
+        <label for="lbl-comment-area">{{ strings.comment_txt }}</label>
+        <textarea id="comment-area" name="message" class="form-control h-auto" aria-labelledby="lbl-comment-area" required ></textarea>
+    </div>
+    <div class="form-group">
+        <label id="lbl-comment-preview"></label>
+        <div id="comment-preview" class="form-control bg-light h-auto"></div>
     </div>
     <div class="form-group">
         <div class="form-check">
-            <input id="comment-check" type="checkbox" name="special" class="form-check-input" aria-labelledby="comment-check-lbl" required />
-            <label for="comment-check-lbl" class="form-check-label">{{ strings.comment_chk }}</label>
+            <input id="comment-check" type="checkbox" name="special" class="form-check-input" aria-labelledby="lbl-comment-check" required />
+            <label for="lbl-comment-check" class="form-check-label">{{ strings.comment_chk }}</label>
         </div>
     </div>
     <button id="new-comment-submit" type="submit" class="btn btn-primary" value="Send">{{ strings.send_btn }}</button>
@@ -100,6 +104,31 @@ it is preferable to load the script in the <head> section of default.html
         breaks: true,
         gfm: true,
     });
+
+    // preview comment
+    var comment_state = document.getElementById("comment-area");
+    document.getElementById("comment-area").style.minHeight = "2.8rem";
+    document.getElementById("lbl-comment-preview").style.display = "none";
+    document.getElementById("comment-preview").style.display = "none";
+
+    comment_state.onkeyup = comment_state.onkeypress = function(){
+        document.getElementById("comment-preview").innerHTML = marked.parse(this.value);
+    }
+
+    comment_state.onblur = function(){
+        if (document.getElementById("comment-preview").innerHTML == "") {
+            document.getElementById("lbl-comment-preview").style.display = "none";
+            document.getElementById("comment-preview").style.display = "none";
+        }
+    }
+
+    comment_state.onfocus = function(){
+        document.getElementById("lbl-comment-preview").style.display = "flex";
+        document.getElementById("lbl-comment-preview").innerHTML = "{{ strings.comment_preview }}";
+        document.getElementById("comment-preview").style.display = "inherit";
+        document.getElementById("comment-preview").style.minHeight = "2.8rem";
+        // document.getElementById("comment-preview").style.height = "auto";
+    }
 
     // not necessary here; date localization is handled by value of Jekyll page.locale variable
     var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
