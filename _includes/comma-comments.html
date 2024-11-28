@@ -39,7 +39,7 @@
     </div>
     <div class="form-group">
         <label for="lbl-comment-area">{{ strings.comment_txt }}</label>
-        <textarea id="comment-area" name="message" class="form-control h-auto" aria-labelledby="lbl-comment-area" required ></textarea>
+        <textarea id="comment-area" name="message" class="form-control" aria-labelledby="lbl-comment-area" rows="5" required ></textarea>
     </div>
     <div class="form-group">
         <label id="lbl-comment-preview"></label>
@@ -65,7 +65,6 @@
         </div>
     </article>
 </template> -->
-
 
 <template id="comment-template">
 <div class="card border-primary rounded-0 mb-2">
@@ -113,6 +112,7 @@ it is preferable to load the script in the <head> section of default.html
 
     comment_state.onkeyup = comment_state.onkeypress = function(){
         document.getElementById("comment-preview").innerHTML = marked.parse(this.value);
+        // document.getElementById("comment-area").scrollIntoView();
     }
 
     comment_state.onblur = function(){
@@ -127,7 +127,6 @@ it is preferable to load the script in the <head> section of default.html
         document.getElementById("lbl-comment-preview").innerHTML = "{{ strings.comment_preview }}";
         document.getElementById("comment-preview").style.display = "inherit";
         document.getElementById("comment-preview").style.minHeight = "2.8rem";
-        // document.getElementById("comment-preview").style.height = "auto";
     }
 
     // not necessary here; date localization is handled by value of Jekyll page.locale variable
