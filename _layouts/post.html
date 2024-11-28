@@ -149,7 +149,12 @@ locale: en
 
         </div>
     </div>
-    <button onclick="goTop()" id="scroll-button" class="arrow up" title="Go to top">Top</button>
+</div>
+
+<!-- back to top button -->
+<div class="container-lg pt-4 pb-4">
+    <!-- <button onclick="goTop()" id="scroll-button" class="arrow up" title="Go to top">Top</button> -->
+    <button class="back-to-top" type="button"></button>
 </div>
 
 
@@ -175,18 +180,19 @@ locale: en
 
 
 
-<script language="javascript">
+
+<!-- <script language="javascript">
 // Get the button:
-let mybutton = document.getElementById("scroll-button");
+let scrollbutton = document.getElementById("scroll-button");
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {pageScroll()};
 
 function pageScroll() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
+        scrollbutton.style.display = "block";
     } else {
-        mybutton.style.display = "none";
+        scrollbutton.style.display = "none";
     }
 }
 
@@ -195,4 +201,25 @@ function goTop() {
     document.body.scrollTop = 0;    // For Safari
     document.documentElement.scrollTop = 0;     // For Chrome, Firefox, IE and Opera
 }
+</script> -->
+
+
+<script language="javascript">
+// Back to top
+var amountScrolled = 200;
+var amountScrolledNav = 25;
+
+$(window).scroll(function() {
+    if ( $(window).scrollTop() > amountScrolled ) {
+        $('button.back-to-top').addClass('show');
+    } else {
+        $('button.back-to-top').removeClass('show');
+    }
+});
+
+$('button.back-to-top').click(function() {
+    $('html, body').animate({scrollTop: 0}, 400);
+    return false;
+});
 </script>
+
