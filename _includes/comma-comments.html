@@ -105,28 +105,30 @@ it is preferable to load the script in the <head> section of default.html
     });
 
     // preview comment
-    var comment_state = document.getElementById("comment-area");
-    document.getElementById("comment-area").style.minHeight = "2.8rem";
-    document.getElementById("lbl-comment-preview").style.display = "none";
-    document.getElementById("comment-preview").style.display = "none";
+    var comment_area = document.getElementById("comment-area");
+    var comment_preview = document.getElementById("comment-preview");
+    var lbl_comment_preview = document.getElementById("lbl-comment-preview");
+    
+    comment_area.style.minHeight = "2.8rem";
+    lbl_comment_preview.style.display = "none";
+    comment_preview.style.display = "none";
 
-    comment_state.onkeyup = comment_state.onkeypress = function(){
-        document.getElementById("comment-preview").innerHTML = marked.parse(this.value);
-        // document.getElementById("comment-area").scrollIntoView();
+    comment_area.onkeyup = comment_area.onkeypress = function(){
+        comment_preview.innerHTML = marked.parse(this.value);
     }
 
-    comment_state.onblur = function(){
-        if (document.getElementById("comment-preview").innerHTML == "") {
-            document.getElementById("lbl-comment-preview").style.display = "none";
-            document.getElementById("comment-preview").style.display = "none";
+    comment_area.onblur = function(){
+        if (comment_preview.innerHTML == "") {
+            lbl_comment_preview.style.display = "none";
+            comment_preview.style.display = "none";
         }
     }
 
-    comment_state.onfocus = function(){
-        document.getElementById("lbl-comment-preview").style.display = "flex";
-        document.getElementById("lbl-comment-preview").innerHTML = "{{ strings.comment_preview }}";
-        document.getElementById("comment-preview").style.display = "inherit";
-        document.getElementById("comment-preview").style.minHeight = "2.8rem";
+    comment_area.onfocus = function(){
+        lbl_comment_preview.style.display = "flex";
+        lbl_comment_preview.innerHTML = "{{ strings.comment_preview }}";
+        comment_preview.style.display = "inherit";
+        comment_preview.style.minHeight = "2.8rem";
     }
 
     // not necessary here; date localization is handled by value of Jekyll page.locale variable
