@@ -5,8 +5,8 @@ logo: "assets/images/logo.png"
 favicon: "assets/images/favicon.ico"
 baseurl: ""
 siteurl: "http://192.168.1.102"
+siteurl: "poseidone.local"
 ## siteurl: "http://152.70.43.19"
-## siteurl: "http://94.237.81.102"
 # disqus: "sabinomaggi"
 email: "sabino.maggi@gmail.com"
 # mailchimp-list: ""
@@ -27,7 +27,7 @@ plugins:
 authors:
     Sabino Maggi:
       name:           Sabino Maggi
-      site:           https://melabit.wordpress.com
+      site:           https://melabit.com
       avatar:         assets/images/SM_400x400.png
       email:          sabino.maggi@gmail.com
       twitter:        https://twitter.com/sabinomaggi
