@@ -12,6 +12,11 @@ object-fit: cover;
 /* object-position: 25% 25%; */
 }
 
+.text-size-ofp {
+  font-size: 1.6rem;
+  vertical-align: center;
+}
+
 /* go to the top button */
 button.back-to-top{
     margin: 0 !important;

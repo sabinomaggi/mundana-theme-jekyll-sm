@@ -164,6 +164,7 @@ locale: en
             <div class="col-6 text-left pr-0">
                 {% if page.previous.url %}
                     <a class="text-dark" href="{{ site.baseurl }}{{ page.previous.url }}">
+                    <span class="text-size-ofp">&#x226A; &nbsp;</span>
                     {% if page.previous.image %} <img class="mr-1 crop-ofp" src="{% if page.previous.image contains '://' %}{{ page.previous.image }}{% else %} {{site.baseurl}}/{{ page.previous.image}}{% endif %}"> {% endif %}
                     {{page.previous.title | truncate: 50}}
                     </a>
@@ -174,6 +175,7 @@ locale: en
                     <a class="text-dark" href="{{ site.baseurl }}{{ page.next.url }}">
                     {{page.next.title | truncate: 50}}
                     {% if page.next.image %}<img class="ml-1 crop-ofp" src="{% if page.next.image contains '://' %}{{ page.next.image }}{% else %} {{site.baseurl}}/{{ page.next.image}}{% endif %}"> {% endif %}
+                    <span class="text-size-ofp">&nbsp; &#x226B;</span>
                     </a>
                 {% endif %}
             </div>
