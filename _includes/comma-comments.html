@@ -70,7 +70,7 @@
 <div class="card border-primary rounded-0 mb-2">
     <div class="d-flex flex-row flex-wrap">
         <div class="card-block">
-            <img src={{ "https://icotar.com/avatar/" | append: "@id" | append: ".png"}}>
+            <!-- <img src={{ "https://icotar.com/avatar/" | append: "@id" | append: ".png"}}> -->
         </div>
         <div class="card-header flex-fill">
             <h5>@name</h5>
@@ -89,14 +89,9 @@
 
 
 
-<!-- Load marked.js for parsing markdown (https://github.com/markedjs/marked)
-NOTE: to avoid loading the script every time the comments section is loaded, 
-it is preferable to load the script in the <head> section of default.html 
--->
-<!-- <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> -->
-
-
 <script language="javascript">
+    // requires the Marked and DOMPurify libraries, which are loaded
+    // in the <head> section of default.html
 
     // marked configuration
     marked.use({
@@ -104,6 +99,13 @@ it is preferable to load the script in the <head> section of default.html
         gfm: true,
     });
 
+    function sanitizeComment(comment) {
+        // takes a comment written in plain text, markdown or HTML,
+        // converts the plain text/markdown parts into HTML
+        // and sanitizes the resulting code
+        return DOMPurify.sanitize(marked.parse(comment), {USE_PROFILES: {html: true, mathMl: true}});
+    }
+    
     // preview comment
     var comment_area = document.getElementById("comment-area");
     var comment_preview = document.getElementById("comment-preview");
@@ -114,7 +116,7 @@ it is preferable to load the script in the <head> section of default.html
     comment_preview.style.display = "none";
 
     comment_area.onkeyup = comment_area.onkeypress = function(){
-        comment_preview.innerHTML = marked.parse(this.value);
+        comment_preview.innerHTML = sanitizeComment(this.value);
     }
 
     comment_area.onblur = function(){
@@ -148,19 +150,14 @@ it is preferable to load the script in the <head> section of default.html
         const template = document.getElementById('comment-template');
 
         var txt = template.innerHTML;
-        // console.log("loaded txt:", txt)
-        // console.log("data.Message:", data.Message)
        
         // text of comment is in variable data.Message and might be in markdown
         // the lines below convert markdown comment to HTML 
-        var messageMD = data.Message;
-        messageMD = messageMD.replace("<", "&#60;").replace(">", "&#62;");
-        const messageHTML = marked.parse(messageMD)
-        // console.log("parsed messageHTML:", messageHTML)
+        var messageTxt = data.Message;
+        // messageTxt = messageTxt.replace("<", "&#60;").replace(">", "&#62;");
         
-        const messagePURE = DOMPurify.sanitize(messageHTML, {USE_PROFILES: {html: true}});
-        // console.log("parsed messagePURE:", messagePURE)
-       
+        var messageSane = sanitizeComment(messageTxt);
+
         var d = new Date(data.Ts);
         var date = d.getDate() + " " + monthNames[d.getMonth()] + ", " + d.getFullYear() + " at " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
         
@@ -173,7 +170,7 @@ it is preferable to load the script in the <head> section of default.html
                   .replace('@dateloc', dateLocale)
                   .replace('@name', data.Author)
                   .replace('@id', data.Author)
-                  .replace('@message', messagePURE)
+                  .replace('@message', messageSane)
                   .replace('@url', data.Link);
         let temp = document.createElement('template');
         temp.innerHTML = txt;
@@ -206,12 +203,21 @@ it is preferable to load the script in the <head> section of default.html
 
          async function sendData() {
             document.querySelector('#new-comment-submit').textContent = "{{ strings.send_btn_sending }}";
+            
             const formData = new FormData(form);
+
+            // formMessage = formData.get("message");
+            // console.log("prima:", formMessage);
+            // // sanitize comment before sending it up to the comma server
+            // formData.set("message", sanitizeComment(formMessage));
+            // console.log("dopo: ", formMessage);
+
             try {
                 const response = await fetch(commentsUrl, {
                     method: "POST",
                     body: formData,
                 });
+                
                 button = document.querySelector('#new-comment-submit');
                 if (response.ok) {
                     button.textContent = "{{ strings.send_btn_ok }}";
@@ -222,6 +228,8 @@ it is preferable to load the script in the <head> section of default.html
                     document.getElementById("comment-name").value = "";
                     document.getElementById("comment-url").value = "";
                     document.getElementById("comment-area").value = "";
+                    document.getElementById("lbl-comment-preview").style.display = "none";
+                    document.getElementById("comment-preview").style.display = "none";
                     document.getElementById("comment-check").checked = false;
                 } else {
                     button.className = 'btn-err';
