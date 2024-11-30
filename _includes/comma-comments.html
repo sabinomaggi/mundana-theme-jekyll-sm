@@ -21,7 +21,7 @@
 </form> -->
 
 <form id="new-comment-form" action="{{ site.commentserver }}">
-    <input type="hidden" name="post" value="{{ loc }}-{{ page.name }}">
+    <input type="hidden" name="post" value="{{ loc }}-{{ page.name | remove: '.md' }}">
     <div class="form-group">
         <label for="lbl-comment-name">{{ strings.comment_name }}</label>
         <input id="comment-name" type="text" name="name" class="form-control" aria-labelledby="lbl-comment-name" required />
@@ -183,7 +183,7 @@
 
     domReady(async function() {
         let form = document.getElementById("new-comment-form");
-        let commentsUrl = "{{ site.commentserver }}/{{ loc }}-{{ page.name }}";
+        let commentsUrl = "{{ site.commentserver }}/{{ loc }}-{{ page.name | remove: '.md' }}";
 
         form.addEventListener("submit", (event) => {
             event.preventDefault();
