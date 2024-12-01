@@ -4,9 +4,12 @@ description: "Mac e programmazione, con un tocco di retrocomputing"
 logo: "assets/images/logo.png"
 favicon: "assets/images/favicon.ico"
 baseurl: ""
-siteurl: "http://192.168.1.102"
+#-- siteurl: "http://192.168.1.102"
 siteurl: "poseidone.local"
-## siteurl: "http://152.70.43.19"
+# UpCloud jekyll
+#-- siteurl: "http://94.237.100.109"
+# Oracle Cloud jekyll
+#-- siteurl: http://152.70.43.19:5888
 # disqus: "sabinomaggi"
 email: "sabino.maggi@gmail.com"
 # mailchimp-list: ""
@@ -83,8 +86,10 @@ default_locale: en
 
 #--- Comma comments ---
 commentserver: http://localhost:5888
-## commentserver: http://152.70.43.19:5888
-## commentserver: http://94.237.81.102:5888
+# UpCloud comma server
+#-- commentserver: http://94.237.100.109:5888
+# Oracle Cloud comma server
+#-- commentserver: http://152.70.43.19:5888
 
 # Exclude metadata and development time dependencies (like Grunt plugins)
 exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
